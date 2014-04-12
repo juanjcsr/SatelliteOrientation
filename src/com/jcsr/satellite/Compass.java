@@ -1,4 +1,4 @@
-package com.iutinvg.compass;
+package com.jcsr.satellite;
 
 import android.content.Context;
 import android.hardware.Sensor;

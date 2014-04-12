@@ -2,10 +2,12 @@
 <resources>
 
     <!-- Main -->
-    <string name="app_name">Compass</string>
+    <string name="title">Compass</string>
     <string name="title_activity_compass">iutinvg / compass</string>
     <string name="compass_bkg">Compass Background</string>
     <string name="compass_arrow">Compass Arrow</string>
     <string name="azimuth_arrow">Compass Azimuth</string>
-    
+    <string name="main_button">Actualiza TV</string>
+    <string name="satelite_hint">ARDUSAT</string>
+
 </resources>

@@ -1,11 +1,13 @@
-package com.iutinvg.compass;
+package com.jcsr.satellite;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.jcsr.compass.R;
+
 
 public class CompassActivity extends FragmentActivity {
 
