@@ -4,29 +4,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/main_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"/>
-    <EditText
-        android:id="@+id/etext_satellite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:hint="@string/satelite_hint"/>
-
-    <Button
-        android:id="@+id/main_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/main_button"/>
-
     <ListView
         android:id="@+id/satellite_listview"
         android:layout_width="match_parent"

@@ -70,14 +70,14 @@ public class JSONAdapter extends BaseAdapter {
             String imageid = jsonObject.optString("cover_i");
             String imageurl = IMAGE_URL + imageid + "-S.jpg";
             Log.d("imagen", imageurl);
-            Picasso.with(mContext).load(imageurl).placeholder(R.drawable.ic_launcher).into(holder.satImg);
+            //Picasso.with(mContext).load(imageurl).placeholder(R.drawable.sateliteicon).into(holder.satImg);
         } else {
-            holder.satImg.setImageResource(R.drawable.ic_launcher);
+            holder.satImg.setImageResource(R.drawable.sateliteicon);
         }
         String satname = "";
         String satdesc = "";
-        if ( jsonObject.has("title")) {
-            satname = jsonObject.optString("title");
+        if ( jsonObject.has("titulo")) {
+            satname = jsonObject.optString("titulo");
         }
         if ( jsonObject.has("author_name")) {
             satdesc = jsonObject.optJSONArray("author_name").optString(0);

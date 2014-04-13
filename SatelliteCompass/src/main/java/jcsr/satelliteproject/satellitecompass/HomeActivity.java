@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import jcsr.satelliteproject.satellitecompass.R;
@@ -41,6 +42,31 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
     //ArrayAdapter mArrayAdapter;
     JSONAdapter mJsonAdapter;
     ArrayList mArrayList = new ArrayList();
+
+    final String satelites = "{\n" +
+            "\"satelites\":[\n" +
+            "{\n" +
+            "\"titulo\":\"FUNcube-1\"\n" +
+            "},\n" +
+            "{\n" +
+            "\"titulo\":\"Ardusat-1\"\n" +
+            "},\n" +
+            "{\n" +
+            "\"titulo\":\"Ardusat-2\"\n" +
+            "},\n" +
+            "{\n" +
+            "\"titulo\":\"Ardusat-3\"\n" +
+            "},\n" +
+            "{\n" +
+            "\"titulo\":\"ELaNa3\"\n" +
+            "},\n" +
+            "{\n" +
+            "\"titulo\":\"Vega Launch\"\n" +
+            "},\n" +
+            "{\n" +
+            "\"titulo\":\"SWISSCUBE\"\n" +
+            "}\n" +
+            "]}";
 
     ShareActionProvider mShareActionProvider;
 
@@ -62,7 +88,7 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Estoy escuchando un Satellite");
-            shareIntent.putExtra(Intent.EXTRA_TEXT, mainTextView.getText());
+            //shareIntent.putExtra(Intent.EXTRA_TEXT, mainTextView.getText());
 
             mShareActionProvider.setShareIntent(shareIntent);
         }
@@ -71,9 +97,9 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        mainTextView = (TextView)findViewById(R.id.main_textview);
-        mainButton = (Button)findViewById(R.id.main_button);
-        mBuscaSatelite = (EditText)findViewById(R.id.etext_satellite);
+        //mainTextView = (TextView)findViewById(R.id.main_textview);
+        //mainButton = (Button)findViewById(R.id.main_button);
+        //mBuscaSatelite = (EditText)findViewById(R.id.etext_satellite);
 
         mSatelliteView = (ListView)findViewById(R.id.satellite_listview);
         /* mArrayAdapter = new ArrayAdapter(this,
@@ -86,18 +112,25 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
         mSatelliteView.setOnItemClickListener(this);
 
 
-        mainButton.setOnClickListener(this);
+        //mainButton.setOnClickListener(this);
 
-        querySatellites("Hobbit");
+        //querySatellites("Hobbit");
+
+        try {
+            JSONObject json = new JSONObject(satelites);
+            mJsonAdapter.updateData(json.optJSONArray("satelites"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public void onClick(View view) {
-        mainTextView.setText(mBuscaSatelite.getText().toString() + " para buscar!");
+       // mainTextView.setText(mBuscaSatelite.getText().toString() + " para buscar!");
         //mArrayList.add(mBuscaSatelite.getText().toString());
         //mArrayAdapter.notifyDataSetChanged();
-        querySatellites(mBuscaSatelite.getText().toString());
+        //querySatellites(mBuscaSatelite.getText().toString());
     }
 
     @Override
@@ -129,10 +162,10 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
         }
 
         //Cliente async
-        AsyncHttpClient client = new AsyncHttpClient();
+        //AsyncHttpClient client = new AsyncHttpClient();
         //Obtener JSON
         Log.d("URLQUERY ", QUERY_URL + urlString);
-        client.get(QUERY_URL + urlString,
+        /*client.get(QUERY_URL + urlString,
                 new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(JSONObject response) {
@@ -148,6 +181,14 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
                                 throwable.getMessage(), Toast.LENGTH_LONG ).show();
                         Log.e("respuesta error:", statusCode + " " + throwable.getMessage() );
                     }
-                });
+                }); */
+
+        try {
+            JSONObject json = new JSONObject(satelites);
+            mJsonAdapter.updateData(json.optJSONArray("satelites"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }

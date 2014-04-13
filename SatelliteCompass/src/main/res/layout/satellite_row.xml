@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="25dp"
         android:layout_toRightOf="@+id/img_satellite"
-        android:layout_alignTop="@+id/img_satellite"/>
+        android:layout_alignTop="@+id/img_satellite"
+        android:textSize="35dp"/>
 
     <TextView
         android:id="@+id/sat_desc"
