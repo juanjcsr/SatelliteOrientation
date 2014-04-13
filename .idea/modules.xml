@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/compass.iml" filepath="$PROJECT_DIR$/compass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidCompass.iml" filepath="$PROJECT_DIR$/AndroidCompass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SatelliteCompass/SatelliteCompass.iml" filepath="$PROJECT_DIR$/SatelliteCompass/SatelliteCompass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SatelliteProject.iml" filepath="$PROJECT_DIR$/SatelliteProject.iml" />
     </modules>
   </component>
 </project>
