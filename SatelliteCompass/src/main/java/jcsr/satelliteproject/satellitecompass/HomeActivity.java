@@ -88,6 +88,8 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
 
         mainButton.setOnClickListener(this);
 
+        querySatellites("Hobbit");
+
     }
 
     @Override
@@ -100,7 +102,18 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long id) {
-        Log.d("yayyy", pos + " : " + mArrayList.get(pos));
+        //Log.d("yayyy", pos + " : " + mArrayList.get(pos));
+        JSONObject jsonObject = (JSONObject) mJsonAdapter.getItem(pos);
+        String coverID = jsonObject.optString("cover_i", "");
+        String json = jsonObject.toString();
+        Log.d("JSONCLICKED", jsonObject.toString());
+
+        Intent detailIntent = new Intent(this, DetailActivity.class);
+        detailIntent.putExtra("coverID", coverID);
+        detailIntent.putExtra("objetoJson", json);
+
+        //Agregar mas cosas
+        startActivity(detailIntent);
     }
 
 
@@ -118,6 +131,7 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
         //Cliente async
         AsyncHttpClient client = new AsyncHttpClient();
         //Obtener JSON
+        Log.d("URLQUERY ", QUERY_URL + urlString);
         client.get(QUERY_URL + urlString,
                 new JsonHttpResponseHandler() {
                     @Override

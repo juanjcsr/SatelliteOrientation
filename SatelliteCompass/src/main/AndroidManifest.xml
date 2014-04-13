@@ -17,21 +17,31 @@
         android:allowBackup="false"
         android:icon="@drawable/ic_launcher"
         android:label="@string/title" >
-        <activity
-            android:name="jcsr.satelliteproject.satellitecompass.CompassActivity"
-            android:label="@string/title_activity_compass"
-            android:screenOrientation="portrait" >
-            <!-- <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
-        </activity>
-        <activity android:name="jcsr.satelliteproject.satellitecompass.HomeActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".CompassActivity"
+            android:label="@string/title_activity_compass"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".DetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DetailActivity"
+                />
+        </activity>
+
+        <activity android:name=".DetailActivity"
+            android:label="@string/title"
+            android:launchMode="singleTop"
+            android:parentActivityName=".HomeActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HomeActivity" />
+
         </activity>
     </application>
 

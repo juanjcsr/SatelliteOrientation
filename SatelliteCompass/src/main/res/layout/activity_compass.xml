@@ -5,51 +5,44 @@
     android:layout_height="fill_parent"
     android:background="@drawable/bkg" >
 
+    <TextView
+        android:id="@+id/textAzimuth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:text="AZIMUTH = " />
+    <TextView
+        android:id="@+id/textPitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textAzimuth"
+        android:textSize="25dp"
+        android:text="ELEVACIÓN = " />
+    <TextView
+        android:id="@+id/textRoll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/main_image_compass"
+        android:layout_toLeftOf="@+id/main_image_arrow"
+        android:text="Roll = " />
+
     <ImageView
         android:id="@+id/main_image_compass"
-        android:layout_width="141dp"
-        android:layout_height="141dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_centerInParent="true"
         android:contentDescription="@string/compass_bkg"
         android:src="@drawable/bkg_compass" />
 
     <ImageView
         android:id="@+id/main_image_arrow"
-        android:layout_width="73dp"
-        android:layout_height="75dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:layout_centerInParent="true"
         android:contentDescription="@string/compass_arrow"
         android:scaleType="fitXY"
         android:src="@drawable/arrow" />
-    <ImageView
-        android:id="@+id/azimuth_arrow"
-        android:layout_width="73dp"
-        android:layout_height="75dp"
-        android:layout_centerInParent="true"
-        android:contentDescription="@string/azimuth_arrow"
-        android:scaleType="fitXY"
-        android:src="@drawable/arrowazimuth"/>
-    <TextView
-        android:id="@+id/textAzimuth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/main_image_arrow"
-        android:text="Azimuth = " />
-    <TextView
-        android:id="@+id/textPitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="false"
-        android:layout_toEndOf="@+id/textAzimuth"
-        android:text="Pitch = " />
-    <TextView
-        android:id="@+id/textRoll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
 
-        android:layout_toLeftOf="@+id/main_image_arrow"
-        android:text="Roll = " />
+
 
 </RelativeLayout>

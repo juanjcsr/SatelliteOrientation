@@ -23,7 +23,7 @@ public class CompassActivity extends FragmentActivity {
 		compass = new Compass(this);
 		compass.arrowView = (ImageView) findViewById(R.id.main_image_arrow);
         compass.azimuthText = (TextView)findViewById(R.id.textAzimuth);
-        compass.azimuthView = (ImageView)findViewById(R.id.azimuth_arrow);
+        //compass.azimuthView = (ImageView)findViewById(R.id.azimuth_arrow);
 
         compass.pitchText = (TextView)findViewById(R.id.textPitch);
         compass.rollText = (TextView)findViewById(R.id.textRoll);
