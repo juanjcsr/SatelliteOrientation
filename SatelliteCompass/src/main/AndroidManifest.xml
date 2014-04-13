@@ -7,6 +7,7 @@
     <uses-feature
         android:name="android.hardware.sensor.magnetic_field"
         android:required="true" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-sdk
         android:minSdkVersion="14"
