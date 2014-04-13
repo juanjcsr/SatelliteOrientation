@@ -1,4 +1,4 @@
-package com.jcsr.satellite;
+package jcsr.satelliteproject.satellitecompass;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,7 +17,8 @@ import android.widget.ListView;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
-import com.jcsr.compass.R;
+
+import jcsr.satelliteproject.satellitecompass.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.jcsr.satellite;
+package jcsr.satelliteproject.satellitecompass;
 
 import android.content.Context;
 import android.hardware.Sensor;

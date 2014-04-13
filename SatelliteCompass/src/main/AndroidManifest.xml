@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.jcsr.compass"
+    package="jcsr.satelliteproject.satellitecompass"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -17,7 +17,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/title" >
         <activity
-            android:name="com.jcsr.satellite.CompassActivity"
+            android:name="jcsr.satelliteproject.satellitecompass.CompassActivity"
             android:label="@string/title_activity_compass"
             android:screenOrientation="portrait" >
             <!-- <intent-filter>
@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter> -->
         </activity>
-        <activity android:name="com.jcsr.satellite.HomeActivity">
+        <activity android:name="jcsr.satelliteproject.satellitecompass.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
