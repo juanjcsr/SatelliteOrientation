@@ -51,7 +51,7 @@ public class JSONAdapter extends BaseAdapter {
         ViewHolder holder;
         //revisa si ya existe la vista
         if ( convertView == null ) {
-            convertView = mInflater.inflate(R.layout.satellite_row,null);
+            convertView = mInflater.inflate(R.layout.satellite_row, parent, false);
 
             //Holder con subviews
             holder = new ViewHolder();
@@ -70,9 +70,9 @@ public class JSONAdapter extends BaseAdapter {
             String imageid = jsonObject.optString("cover_i");
             String imageurl = IMAGE_URL + imageid + "-S.jpg";
             Log.d("imagen", imageurl);
-            //Picasso.with(mContext).load(imageurl).placeholder(R.drawable.sateliteicon).into(holder.satImg);
+            Picasso.with(mContext).load(imageurl).placeholder(R.drawable.sateliteicon).into(holder.satImg);
         } else {
-            holder.satImg.setImageResource(R.drawable.sateliteicon);
+            //holder.satImg.setImageResource(R.drawable.sateliteicon);
         }
         String satname = "";
         String satdesc = "";

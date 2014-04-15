@@ -130,19 +130,19 @@ public class Compass implements SensorEventListener {
 				Log.d(TAG, "azimuth (deg): " + azimuth);
 
 				adjustArrow();
-                if (azimuth >= 45 && azimuth <=70) {
+                if (azimuth >= 340 && azimuth <=359) {
 
                     toneG.startTone(ToneGenerator.TONE_CDMA_ALERT_CALL_GUARD, 200);
-                    if (-pitch > 40 && -pitch < 60) {
+                    if (-pitch > 78 && -pitch < 89) {
                         toneP.startTone(ToneGenerator.TONE_CDMA_HIGH_L);
                     }
-                    azimuthText.setText("AZ!!! = " + String.valueOf(azimuth));
-                    pitchText.setText("PI = " + String.valueOf(pitch));
-                    rollText.setText("RLL = " + String.valueOf(roll));
+                    azimuthText.setText(String.valueOf(Math.round(azimuth)));
+                    pitchText.setText(String.valueOf(Math.round(-pitch)));
+                    //rollText.setText("RLL = " + String.valueOf(Math.round(roll)));
                 } else {
-                    azimuthText.setText("AZ = " + String.valueOf(azimuth));
-                    pitchText.setText("PI = " + String.valueOf(pitch));
-                    rollText.setText("RLL = " + String.valueOf(roll));
+                    azimuthText.setText( String.valueOf(Math.round(azimuth)));
+                    pitchText.setText( String.valueOf(Math.round(-pitch)));
+                    //rollText.setText("RLL = " + String.valueOf(Math.round(roll)));
                 }
 
 			}

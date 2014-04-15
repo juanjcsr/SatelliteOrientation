@@ -15,6 +15,10 @@ public class CompassActivity extends FragmentActivity {
 
 	private Compass compass;
 
+    TextView textoAzm;
+    TextView textoPitch;
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,8 +30,16 @@ public class CompassActivity extends FragmentActivity {
         //compass.azimuthView = (ImageView)findViewById(R.id.azimuth_arrow);
 
         compass.pitchText = (TextView)findViewById(R.id.textPitch);
-        compass.rollText = (TextView)findViewById(R.id.textRoll);
+
+        textoAzm = (TextView)findViewById(R.id.textView);
+        textoPitch = (TextView)findViewById(R.id.textView2);
+
+        textoAzm.setText("AZ = " + getIntent().getStringExtra("azm"));
+        textoPitch.setText("EL = " +getIntent().getStringExtra("pitch"));
+        //compass.rollText = (TextView)findViewById(R.id.textRoll);
 	}
+
+
 
 	@Override
 	public void onStart() {

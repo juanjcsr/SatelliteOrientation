@@ -10,39 +10,74 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25dp"
-        android:text="AZIMUTH = " />
+        android:text="AZIMUTH = "
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
     <TextView
         android:id="@+id/textPitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textAzimuth"
         android:textSize="25dp"
-        android:text="ELEVACIÓN = " />
-    <TextView
-        android:id="@+id/textRoll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/main_image_compass"
-        android:layout_toLeftOf="@+id/main_image_arrow"
-        android:text="Roll = " />
+        android:text="ELEVACIÓN = "
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/main_image_compass"
         android:layout_width="350dp"
         android:layout_height="350dp"
-        android:layout_centerInParent="true"
         android:contentDescription="@string/compass_bkg"
-        android:src="@drawable/bkg_compass" />
+        android:src="@drawable/bkg_compass"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <ImageView
         android:id="@+id/main_image_arrow"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:layout_centerInParent="true"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:contentDescription="@string/compass_arrow"
         android:scaleType="fitXY"
-        android:src="@drawable/arrow" />
+        android:src="@drawable/arrow"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/derechaizquierda"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_alignLeft="@+id/main_image_arrow"
+        android:layout_alignStart="@+id/main_image_arrow" />
 
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/arribaabajo"
+        android:layout_below="@+id/textPitch"
+        android:layout_alignRight="@+id/main_image_arrow"
+        android:layout_alignEnd="@+id/main_image_arrow" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView"
+        android:layout_below="@+id/imageView"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/imageView2"
+        android:layout_alignRight="@+id/textPitch"
+        android:layout_alignEnd="@+id/textPitch" />
 </RelativeLayout>

@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ShareActionProvider;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -27,7 +30,7 @@ public class DetailActivity extends Activity implements AdapterView.OnItemClickL
 
     Button botonSatellite;
 
-
+    JSONObject json;
     String tempJson = "\n" +
             "{\n" +
             "\"passes\":[\n" +
@@ -236,6 +239,8 @@ public class DetailActivity extends Activity implements AdapterView.OnItemClickL
 
     private static final String QUERY_URL = "http://openlibrary.org/works/";
 
+    ShareActionProvider mShareActionProvider;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -254,23 +259,48 @@ public class DetailActivity extends Activity implements AdapterView.OnItemClickL
         //desempacar cosas de la actividad principal
 
         try {
-            //jsonObject = new JSONObject(this.getIntent().getExtras().getString("objetoJson"));
+            json = new JSONObject(this.getIntent().getExtras().getString("objetoJson"));
             jsonObject = new JSONObject(tempJson);
             rowAdapter.updateData(jsonObject.optJSONArray("passes"));
+            mNombreSat.setText(json.optString("titulo"));
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
         String coverID = this.getIntent().getExtras().getString("coverID");
-        mNombreSat.setText(jsonObject.optString("Satelite"));
-        Log.d("EXTRASSS", coverID);
 
+        Log.d("EXTRASSS", coverID);
 
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        MenuItem shareItem = menu.findItem(R.id.menu_item_share);
+        if ( shareItem != null) {
+            mShareActionProvider = (ShareActionProvider)shareItem.getActionProvider();
+        }
+        setShareIntent();
+        return true;
+    }
+
+    private void setShareIntent() {
+        if (mShareActionProvider != null) {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Estoy escuchando un satelite");
+            //shareIntent.putExtra(Intent.EXTRA_TEXT, " :D ");
+            mShareActionProvider.setShareIntent(shareIntent);
+        }
+    }
+
+    @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        JSONObject jsonObject = (JSONObject) rowAdapter.getItem(i);
         Intent detailIntent = new Intent(this, CompassActivity.class);
+        detailIntent.putExtra("azm", jsonObject.optString("AOSAz"));
+        detailIntent.putExtra("pitch", jsonObject.optString("MaxEl"));
+        detailIntent.putExtra("json", jsonObject.toString());
         startActivity(detailIntent);
     }
 

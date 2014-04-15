@@ -162,10 +162,10 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
         }
 
         //Cliente async
-        //AsyncHttpClient client = new AsyncHttpClient();
+        AsyncHttpClient client = new AsyncHttpClient();
         //Obtener JSON
         Log.d("URLQUERY ", QUERY_URL + urlString);
-        /*client.get(QUERY_URL + urlString,
+        client.get(QUERY_URL + urlString,
                 new JsonHttpResponseHandler() {
                     @Override
                     public void onSuccess(JSONObject response) {
@@ -181,14 +181,14 @@ public class HomeActivity extends Activity implements View.OnClickListener, Adap
                                 throwable.getMessage(), Toast.LENGTH_LONG ).show();
                         Log.e("respuesta error:", statusCode + " " + throwable.getMessage() );
                     }
-                }); */
+                });
 
-        try {
+        /*try {
             JSONObject json = new JSONObject(satelites);
             mJsonAdapter.updateData(json.optJSONArray("satelites"));
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 }
